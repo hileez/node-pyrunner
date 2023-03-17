@@ -1,0 +1,23 @@
+{
+  "name": "node-pyrunner",
+  "version": "1.0.2", 
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  },
+  "keywords": [
+    "pyrunner",
+    "node-pyrunner",
+    "node",
+    "python",
+    "pythonjs",
+    "pyscript"
+  ],
+  "homepage": "https://github.com/supercoderlee/node-pyrunner",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/supercoderlee/node-pyrunner"
+  },
+  "author": "Zhen",
+  "license": "MIT"
+}
