@@ -12,7 +12,7 @@ Node-PyRunner is embed Cpython  to NodeJS with C++ Addon, not a web server or ch
 
 ## Cross-platform
 
-- windows:i32/x64
+- windows:ia32/x64
 - linux:x64/arm64
 - macos:x64
 
