@@ -115,6 +115,10 @@ class PyRunner {
         return false;
     }
 
+    /**
+     * print about pyrunner
+     * @returns 
+     */
     about = () => {
         if (this._isInit) {
             this._addon.about();
@@ -123,8 +127,12 @@ class PyRunner {
         return false;
     }
 
+    /**
+     * get node-pyrunner version
+     * @returns 
+     */
     version = () => {
-        return '1.0.0';
+        return '1.0.2';
     }
 
 }
