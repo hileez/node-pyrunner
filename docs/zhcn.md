@@ -131,7 +131,7 @@ pyrunner.runScript(`print('main run pyscript.')`, (data) => {
 加载python模块对象，使用模块对象的**callSync() / call()**调用模块中的方法。
 
 ~~~JavaScript
-let appModule = pyrunner.loadModule(moduleName);
+let appModule = pyrunner.loadModule(moduleName: string);
 ~~~
 
 - moduleName:Python模块名（脚本文件名）
@@ -141,14 +141,14 @@ let appModule = pyrunner.loadModule(moduleName);
 
 ~~~JavaScript
 // 同步调用loadModule()对象函数
-let result = appModule.callSync(functionName, args[]);
+let result = appModule.callSync(functionName: string, args: Array<number | string>);
 
 // 异步调用loadModule()对象函数（返回空值）
-appModule.call(functionName, args[], callbackOnOk, callbackOnError);
+appModule.call(functionName: string, args: args: Array<number | string>, callbackOnOk: object, callbackOnError: object);
 ~~~
 
 - functionName: 调用Python函数名
-- args[]: 调用Python函数参数数组
+- args: 调用Python函数参数数组
 - callbackOnOk: 执行完成回调
 - callbackOnError: 执行错误回调
 
@@ -189,7 +189,7 @@ Node-PyRunner为解释器创建了内置的nodepyrunner模块，用于在python�
 nodepyrunner.runScript(JsScript);
 ~~~
 
-- JsScript:JavaScript脚本
+- JsScript:JavaScript脚本字符串
 - 返回true/false
 
 ~~~python

@@ -131,7 +131,7 @@ pyrunner.runScript(`print('main run pyscript.')`, (data) => {
 Get python module object，has **callSync() / call()** methods.
 
 ~~~JavaScript
-let appModule = pyrunner.loadModule(moduleName);
+let appModule = pyrunner.loadModule(moduleName: string);
 ~~~
 
 - moduleName: python module name.
@@ -141,10 +141,10 @@ let appModule = pyrunner.loadModule(moduleName);
 
 ~~~JavaScript
 // sync call loadModule() object function
-let result = appModule.callSync(functionName, args[]);
+let result = appModule.callSync(functionName: string, args: Array<number | string>);
 
 // async call loadModule() object function, return undefined.
-appModule.call(functionName, args[], callbackOnOk, callbackOnError);
+appModule.call(functionName: string, args: args: Array<number | string>, callbackOnOk: object, callbackOnError: object);
 ~~~
 
 - functionName: call python function
@@ -189,7 +189,7 @@ async run JavaScript, return true or false.
 nodepyrunner.runScript(JsScript);
 ~~~
 
-- JsScript: javascript script.
+- JsScript: javascript script string.
 - return true/false.
 
 ~~~python
