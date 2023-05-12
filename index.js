@@ -92,11 +92,11 @@ class PyRunner {
     }
 
     /**
-     * create python module object
+     * import python module object
      * @param {*} pModule 
      * @returns 
      */
-    loadModule = (pModule) => {
+    import = (pModule) => {
         if (this._isInit) {
             let pyModule = new PyModule(this._addon, pModule);
             return pyModule;
