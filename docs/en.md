@@ -36,7 +36,7 @@ const pyrunner = require('node-pyrunner');
 
 
 
-##  Node-PyRunner Obeject
+##  Node-PyRunner Object
 
 #### config
 
@@ -369,7 +369,7 @@ https://github.com/supercoderlee/node-pyrunner-quick-start
 
 ~~~JavaScript
 const pyrunner = require('node-pyrunner')
-// set node-pyrunner config
+/* set node-pyrunner config */
 // python_home default: [AppHome]/python/win32/x64/3.10.10
 // win32/x64 auto platform and arch
 pyrunner.config['python_home'] = './python/win32/x64/3.10.10';
@@ -381,8 +381,8 @@ pyrunner.init();
 pyrunner.runScriptSync("print('main runSync pyscript')");
 pyrunner.runScript("print('main run pyscript')");
 
-// call python function
-let appModule = pyrunner.import('app');
+/* call python function */
+let appModule = pyrunner.import('app'); // import app.py
 
 // sync
 let result = appModule.callSync('hello', ['pyrunner']);
@@ -397,7 +397,7 @@ appModule.call('callJsFunc', [1, 2],
   }
 );
 
-// python call js func
+/* python call js func */
 // It must be inside global object
 sayHello = function (num1, num2) {
     let total = num1 + num2;

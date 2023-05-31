@@ -12,7 +12,7 @@ electron集成了nodejs运行时，您可以在electron中使用node-pyrunner执
 
 
 
-## 跨平台
+## Cross-platform | 跨平台
 
 Node-PyRunner目前支持主流的操作系统和芯片架构
 
@@ -181,7 +181,7 @@ appModule.call('show', [1, 2],
 
 ## Python nodepyrunner module | 交互模块
 
-Node-PyRunner为解释器创建了内置的nodepyrunner模块，用于在python脚本中与JavaScript交互，有runScript/callJs两个方法，需要在脚本中import nodepyrunner导入使用。要注意的是JavaScript同步执行python脚本时不能使用nodepyrunner模块，这个与JavaScript的单线程执行机制有关。
+Node-PyRunner为解释器创建了内置的nodepyrunner模块，用于在python脚本中与JavaScript交互，不是PIP第三方模块也不是python标准模块，只有在node-pyrunner中执行python脚本才能使用，有runScript/callJs两个方法，需要在脚本中import nodepyrunner导入使用。要注意的是JavaScript同步执行python脚本时不能使用nodepyrunner模块，这个与JavaScript的单线程执行机制有关。
 
 
 
@@ -337,13 +337,13 @@ appModule.call('pro_create', ['subprocess', 3]);
 
 
 
-## DOM操作
+## DOM元素操作
 
 Electron集成了nodejs环境，因此可以在electron中使用node-pyrunner，并且nodejs与electron共享window对象所以node-pyrunner可以通过执行JavaScript来操作DOM元素。
 
 
 
-## 动态链接库
+## Dynamic link library | 动态链接库
 
 **windows**
 
@@ -359,7 +359,7 @@ Electron集成了nodejs环境，因此可以在electron中使用node-pyrunner，
 
 
 
-## node-pyrunner-quick-start
+## node-pyrunner-quick-start | 快速启动应用
 
 基于electron-quick-start来快速创建node-pyrunner应用
 
@@ -373,7 +373,8 @@ https://github.com/supercoderlee/node-pyrunner-quick-start
 
 ~~~JavaScript
 const pyrunner = require('node-pyrunner')
-// 配置初始化信息
+
+/* 配置初始化信息 */
 // python_home 默认: [AppHome]/python/win32/x64/3.10.10
 // win32/x64 自动根据平台和架构改变
 pyrunner.config['python_home'] = './deps/python/win32/x64/3.10.10';
@@ -381,14 +382,14 @@ pyrunner.config['module_search_paths'][0] = './pyscript'; //默认: [AppHome]/py
 pyrunner.config['module_search_paths'].push('./myscript');
 pyrunner.init(); // 初始化
 
-// 执行python脚本
-pyrunner.runScriptSync("print('main runSync pyscript')");
-pyrunner.runScript("print('main run pyscript')");
+/* 执行python脚本 */
+pyrunner.runScriptSync("print('main runSync pyscript')"); // 同步
+pyrunner.runScript("print('main run pyscript')"); // 异步
 
-// 调用python函数
-let appModule = pyrunner.import('app');
+/* 调用python函数 */
+let appModule = pyrunner.import('app'); //导入app.py模块
 
-// 同步调用python的hello函数
+// 同步调用python的hello函数，传递参数pyrunner
 let result = appModule.callSync('hello', ['pyrunner']);
 
 // 异步调用python的callJsFunc函数
@@ -401,7 +402,8 @@ appModule.call('callJsFunc', [1, 2],
   }
 );
 
-// python调用的JS函数，必须是函数名=函数体，表示该函数在global对象之下，否则python无法调用
+/* python调用的JS函数 */
+//必须是函数名=函数体，表示该函数在global对象之下，否则python无法调用
 sayHello = function (num1, num2) {
     let total = num1 + num2;
     return ++total;
